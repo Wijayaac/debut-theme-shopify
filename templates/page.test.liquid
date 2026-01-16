@@ -1,15 +1,15 @@
 <style>
   /* Mobile-first CSS - Base styles for mobile */
-  .custom-page-container.container-content {
+  .container-content {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
   }
 
   .custom-page-title {
     background-color: #f5f5f5;
     padding: 20px;
     text-align: center;
-    margin-bottom: 20px;
   }
 
   .custom-page-title h1 {
@@ -34,20 +34,12 @@
   .row {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -15px;
-    margin-right: -15px;
   }
 
   .col-12,
   .col-6,
   .col-lg-3 {
-    padding-left: 15px;
-    padding-right: 15px;
     width: 100%;
-  }
-
-  .custom-content-block {
-    margin-bottom: 30px;
   }
 
   /* Ensure proper stacking on mobile */
@@ -119,20 +111,6 @@
     background-color: #7c3aed;
   }
 
-  .custom-image-grid {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -10px;
-    margin-right: -10px;
-    margin-bottom: 30px;
-  }
-
-  .custom-image-grid .custom-image-placeholder {
-    margin-bottom: 0;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
   .custom-email-section {
     background-color: #333;
     padding: 30px 20px;
@@ -185,9 +163,6 @@
   }
 
   .custom-final-section {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
     position: relative;
   }
 
@@ -212,6 +187,7 @@
     width: 100%;
     max-width: 150px;
     margin-bottom: 15px;
+    position: static;
   }
 
   .custom-final-small-image.custom-image-placeholder {
@@ -245,6 +221,18 @@
 
   /* Tablet styles - min-width: 750px */
   @media only screen and (min-width: 750px) {
+    .row {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+
+    .col-12,
+    .col-6,
+    .col-lg-3 {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
     .custom-page-container .container-content {
       padding: 40px;
     }
@@ -275,38 +263,19 @@
       align-items: flex-start;
     }
 
-    .custom-content-block.col-12 {
-      display: block;
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    .custom-content-block.row .custom-text-content,
-    .custom-content-block.row .custom-image-placeholder {
+    .row .custom-text-content,
+    .row .custom-image-placeholder {
       margin-bottom: 0;
       padding-left: 15px;
       padding-right: 15px;
     }
 
-    .custom-content-block.row.reverse .custom-text-content {
+    .row.reverse .custom-text-content {
       order: 2;
     }
 
-    .custom-content-block.row.reverse .custom-image-placeholder {
+    .row.reverse .custom-image-placeholder {
       order: 1;
-    }
-
-    .custom-image-grid {
-      margin-left: -10px;
-      margin-right: -10px;
-    }
-
-    .custom-final-section {
-      flex-direction: row;
-      gap: 40px;
-      align-items: flex-start;
-      margin-left: -15px;
-      margin-right: -15px;
     }
 
     .custom-final-image-wrapper {
@@ -331,11 +300,16 @@
       flex: 1;
       display: flex;
       flex-direction: column;
+      justify-content: flex-end;
     }
 
     .custom-final-small-image {
       max-width: 120px;
       margin-bottom: 20px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(-50%, 35%);
     }
 
     .custom-final-small-image.custom-image-placeholder.small {
@@ -421,7 +395,7 @@
   </div>
 
   <!-- First Content Block: Text and Image -->
-  <div class="custom-content-block col-12 narrow-content">
+  <div class="custom-content-block container-content narrow-content">
     <div class="custom-text-content">
       <p class="custom-text-block text-center">
         There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
@@ -431,97 +405,115 @@
   </div>
 
   <!-- Second Content Block: Title, Text, and Button -->
-  <div class="custom-content-block container-content row">
-    <div class="col-12 col-6 custom-text-content">
-      <h2 class="custom-title">This is title 1</h2>
-      <p class="custom-text-block">
-        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
-        some form, by injected humour, or randomised words which don't look even slightly believable.
-      </p>
-      <a href="#" class="custom-button">Read more</a>
-    </div>
-    <div class="col-12 col-6 custom-image-placeholder large">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
-        <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+  <div class="custom-content-block container-content">
+    <div class="row">
+      <div class="col-12 col-6 custom-text-content">
+        <h2 class="custom-title">This is title 1</h2>
+        <p class="custom-text-block">
+          There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+          some form, by injected humour, or randomised words which don't look even slightly believable.
+        </p>
+        <a href="#" class="custom-button">Read more</a>
+      </div>
+      <div class="col-12 col-6 custom-image-placeholder large">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
+          <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
     </div>
   </div>
 
   <!-- Third Content Block: Image, Title, Text, and Button -->
-  <div class="custom-content-block container-content row reverse">
-    <div class="col-12 col-6 custom-image-placeholder large">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
-        <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <div class="col-12 col-6 custom-text-content">
-      <h2 class="custom-title">This is title 2</h2>
-      <p class="custom-text-block">
-        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
-        some form, by injected humour, or randomised words which don't look even slightly believable.
-      </p>
-      <a href="#" class="custom-button">Read more</a>
+  <div class="custom-content-block container-content">
+    <div class="row reverse">
+      <div class="col-12 col-6 custom-text-content">
+        <h2 class="custom-title">This is title 2</h2>
+        <p class="custom-text-block">
+          There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+          some form, by injected humour, or randomised words which don't look even slightly believable.
+        </p>
+        <a href="#" class="custom-button">Read more</a>
+      </div>
+      <div class="col-12 col-6 custom-image-placeholder large">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
+          <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
     </div>
   </div>
 
   <!-- Fourth Content Block: Grid of Images -->
-  <div class="custom-image-grid container-content row narrow-content">
-    <div class="col-lg-3 col-12">
-      <div class="custom-image-placeholder small">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-        >
-          <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
-          <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+  <div class="custom-image-grid container-content narrow-content">
+    <div class=" row">
+      <div class="col-lg-3 col-12">
+        <div class="custom-image-placeholder small">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
+            <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
-    </div>
-    <div class="col-lg-3 col-12">
-      <div class="custom-image-placeholder small">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-        >
-          <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
-          <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+      <div class="col-lg-3 col-12">
+        <div class="custom-image-placeholder small">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
+            <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
-    </div>
-    <div class="col-lg-3 col-12">
-      <div class="custom-image-placeholder small">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-        >
-          <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
-          <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+      <div class="col-lg-3 col-12">
+        <div class="custom-image-placeholder small">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
+            <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
-    </div>
-    <div class="col-lg-3 col-12">
-      <div class="custom-image-placeholder small">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-        >
-          <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
-          <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+      <div class="col-lg-3 col-12">
+        <div class="custom-image-placeholder small">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
+            <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
     </div>
   </div>
@@ -550,43 +542,51 @@
 
   <!-- Final Content Block: Image with Vertical Label, Text, and Button -->
   <div class="custom-final-section container-content">
-    <div class="custom-final-image-wrapper">
-      <div class="custom-image-placeholder large">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-        >
-          <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
-          <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+    <div class="row">
+      <div class="custom-final-image-wrapper col-12 col-6">
+        <div class="custom-image-placeholder large">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
+            <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="custom-vertical-label">Monoblocks</div>
       </div>
-      <div class="custom-vertical-label">Monoblocks</div>
-    </div>
-    <div class="custom-final-content">
-      <div class="custom-image-placeholder small custom-final-small-image">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-        >
-          <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
-          <path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+      <div class="custom-final-content col-12 col-6">
+        <div class="custom-final-content-inner">
+          <div class="custom-final-small-image">
+            <div class="custom-image-placeholder small">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <circle cx="18" cy="6" r="3" fill="currentColor" opacity="0.6"/>
+                	<path d="M2 20L8 14L12 18L16 14L22 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="custom-final-headline-line">There are many variations of</span>
+          </div>
+          <div class="custom-final-content-text">
+            <div class="custom-final-headline">
+              <span class="custom-final-headline-line">passages of</span>
+            </div>
+            <p class="custom-text-block">
+              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+              in some form, by injected humour, or randomised words which don't look even slightly believable.
+            </p>
+            <a href="#" class="custom-button">Read more</a>
+          </div>
+        </div>
       </div>
-      <div class="custom-final-headline">
-        <span class="custom-final-headline-line">There are many variations of</span>
-        <span class="custom-final-headline-line">passages of</span>
-      </div>
-      <p class="custom-text-block">
-        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
-        some form, by injected humour, or randomised words which don't look even slightly believable.
-      </p>
-      <a href="#" class="custom-button">Read more</a>
     </div>
   </div>
 </div>
