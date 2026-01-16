@@ -34,12 +34,19 @@
   .row {
     display: flex;
     flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
   }
-
-  .col-12,
   .col-6,
-  .col-lg-3 {
+  .col-12 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .col-12 {
     width: 100%;
+  }
+  .col-6 {
+    width: 50%;
   }
 
   /* Ensure proper stacking on mobile */
@@ -109,6 +116,11 @@
 
   .custom-button:hover {
     background-color: #7c3aed;
+  }
+
+  .custom-image-grid .row {
+    margin-left: -20px;
+    margin-right: -20px;
   }
 
   .custom-email-section {
@@ -245,7 +257,7 @@
       font-size: 28px;
     }
 
-    .col-6 {
+    .col-lg-6 {
       flex: 0 0 50%;
       max-width: 50%;
     }
@@ -407,7 +419,7 @@
   <!-- Second Content Block: Title, Text, and Button -->
   <div class="custom-content-block container-content">
     <div class="row">
-      <div class="col-12 col-6 custom-text-content">
+      <div class="col-12 col-lg-6 custom-text-content">
         <h2 class="custom-title">This is title 1</h2>
         <p class="custom-text-block">
           There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
@@ -415,7 +427,7 @@
         </p>
         <a href="#" class="custom-button">Read more</a>
       </div>
-      <div class="col-12 col-6 custom-image-placeholder large">
+      <div class="col-12 col-lg-6 custom-image-placeholder large">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -433,7 +445,7 @@
   <!-- Third Content Block: Image, Title, Text, and Button -->
   <div class="custom-content-block container-content">
     <div class="row reverse">
-      <div class="col-12 col-6 custom-text-content">
+      <div class="col-12 col-lg-6 custom-text-content">
         <h2 class="custom-title">This is title 2</h2>
         <p class="custom-text-block">
           There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
@@ -441,7 +453,7 @@
         </p>
         <a href="#" class="custom-button">Read more</a>
       </div>
-      <div class="col-12 col-6 custom-image-placeholder large">
+      <div class="col-12 col-lg-6 custom-image-placeholder large">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -459,7 +471,7 @@
   <!-- Fourth Content Block: Grid of Images -->
   <div class="custom-image-grid container-content narrow-content">
     <div class=" row">
-      <div class="col-lg-3 col-12">
+      <div class="col-lg-3 col-6">
         <div class="custom-image-placeholder small">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -473,7 +485,7 @@
           </svg>
         </div>
       </div>
-      <div class="col-lg-3 col-12">
+      <div class="col-lg-3 col-6">
         <div class="custom-image-placeholder small">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -487,7 +499,7 @@
           </svg>
         </div>
       </div>
-      <div class="col-lg-3 col-12">
+      <div class="col-lg-3 col-6">
         <div class="custom-image-placeholder small">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -501,7 +513,7 @@
           </svg>
         </div>
       </div>
-      <div class="col-lg-3 col-12">
+      <div class="col-lg-3 col-6">
         <div class="custom-image-placeholder small">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -543,7 +555,7 @@
   <!-- Final Content Block: Image with Vertical Label, Text, and Button -->
   <div class="custom-final-section container-content">
     <div class="row">
-      <div class="custom-final-image-wrapper col-12 col-6">
+      <div class="custom-final-image-wrapper col-12 col-lg-6">
         <div class="custom-image-placeholder large">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -558,7 +570,7 @@
         </div>
         <div class="custom-vertical-label">Monoblocks</div>
       </div>
-      <div class="custom-final-content col-12 col-6">
+      <div class="custom-final-content col-12 col-lg-6">
         <div class="custom-final-content-inner">
           <div class="custom-final-small-image">
             <div class="custom-image-placeholder small">
