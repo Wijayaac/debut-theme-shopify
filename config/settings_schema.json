@@ -35,6 +35,29 @@
       {
         "type": "header",
         "content": {
+          "en": "Preorder button"
+        }
+      },
+      {
+        "type": "color",
+        "id": "color_preorder_button",
+        "label": {
+          "en": "Color"
+        },
+        "default": "#5e5e5e"
+      },
+      {
+        "type": "color",
+        "id": "color_preorder_button_text",
+        "label": {
+          "en": "Text color"
+        },
+        "default": "#ffffff"
+      },
+
+      {
+        "type": "header",
+        "content": {
           "cs": "Text",
           "da": "Tekst",
           "de": "Text",
