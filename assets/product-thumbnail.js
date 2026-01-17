@@ -5,7 +5,6 @@ function initializeProductThumbnailSlider() {
   if (!sliderElement) return;
 
   const productThumbnailSlider = new Glide(".product-thumbnail-slider", {
-    type: "slider",
     perView: 4,
   });
 

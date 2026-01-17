@@ -2,6 +2,10 @@
 	margin-top: 20px;
 }
 
+.product-thumbnail-slider-container .glide__slides {
+	width: 300px;
+}
+
 .product-thumbnail-slider .glide__slide:not(.active) {
 	opacity: 0.5;
 }
