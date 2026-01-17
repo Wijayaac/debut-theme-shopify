@@ -1,0 +1,107 @@
+<!-- 
+Instructions:
+Create a page like in the attached video. 
+
+
+There is a sports variable in the <script> that consist array of object.
+The object contains the information of the sport.
+
+
+Follow the instruction below:
+1. Radio buttons for user to select a sport. Add question "What do you want to do for sport activity today?"
+2. A box that represent what sport the user choosen. 
+3. On selecting the radio button, change the background color of the box to bg_color of selected sport.
+4. Animate "box Me" to move to selected sport box.
+5. Display the selected sport name below the box.
+6. Display list of equipments for the selected sport below the selected sport name text.
+
+
+In this file, you will find jQuery and Vue script that's commented.
+You have to do it using vanilla javascript and jquery.
+If you can do it using Vue js, is a plus.
+
+
+Create new file for each solution (vanilla js, jquery, vue).
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Candidate Test</title>
+	<link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="question">What do you want to do for sport activity today?</h1>
+		<div class="radio-group">
+			<label class="radio-label">
+				<input type="radio" name="sport" value="Football" id="sport-football" checked>
+				<span class="radio-text">Football</span>
+			</label>
+			<label class="radio-label">
+				<input type="radio" name="sport" value="Volleyball" id="sport-volleyball">
+				<span class="radio-text">Volleyball</span>
+			</label>
+			<label class="radio-label">
+				<input type="radio" name="sport" value="Badminton" id="sport-badminton">
+				<span class="radio-text">Badminton</span>
+			</label>
+		</div>
+		<div class="sport-container" id="sport-container">
+			<div class="sport-box" id="sport-box-football" data-sport="Football">
+				<span class="sport-box-text">Football</span>
+			</div>
+			<div class="sport-box" id="sport-box-volleyball" data-sport="Volleyball">
+				<span class="sport-box-text">Volleyball</span>
+			</div>
+			<div class="sport-box" id="sport-box-badminton" data-sport="Badminton">
+				<span class="sport-box-text">Badminton</span>
+			</div>
+			<div class="me-box" id="me-box" style="top: 0; left: 0;">Me</div>
+		</div>
+		<div class="info-section">
+			<p class="selected-sport" id="selected-sport">Select Sport: Football</p>
+			<div class="equipment-section">
+				<h2 class="equipment-title">Equipments:</h2>
+				<ul class="equipment-list" id="equipment-list">
+					<li>Ball</li>
+					<li>Football Shoes</li>
+					<li>Goalpost</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+		const sports = [
+			{
+				name: 'Football',
+				bg_color: '#6bb46e',
+				equipments: ['Ball', 'Football Shoes', 'Goalpost']
+			},
+			{
+				name: 'Volleyball',
+				bg_color: '#c30f42',
+				equipments: ['Ball', 'Nets']
+			},
+			{
+				name: 'Badminton',
+				bg_color: '#2a82be',
+				equipments: ['Shuttlecock', 'Nets', 'Racket']
+			}
+		];
+	</script>
+	<!-- Vanilla JS -->
+	<script src="game.js"></script>
+	<!-- jQuery -->
+	<!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+	<script src="game-jquery.js"></script> -->
+	<!-- Vue JS -->
+	<!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script src="game-vue.js"></script> -->
+</body>
+
+</html>
