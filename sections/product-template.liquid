@@ -300,40 +300,33 @@
                 {%- if product.has_only_default_variant %} product-form__item--no-variants {%- endif -%}
               "
             >
-              {%- if product.tags contains 'preorder' -%}
-                <button
-                  type="button"
-                  name="add"
-                  class="btn product-form__cart-submit{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"
-                >
-                  Preorder
-                </button>
-              {%- else -%}
-                <button
-                  type="submit"
-                  name="add"
+              <button
+                type="submit"
+                name="add"
+                {% unless current_variant.available %}
+                  aria-disabled="true"
+                {% endunless %}
+                class="
+                  btn product-form__cart-submit
+                  {% if product.tags contains 'preorder' %} btn--preorder{% endif %}
+                  {% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}
+                "
+                {% if settings.enable_ajax %}
+                  aria-haspopup="dialog"
+                {% endif %}
+                data-add-to-cart
+              >
+                <span data-add-to-cart-text>
                   {% unless current_variant.available %}
-                    aria-disabled="true"
+                    {{ 'products.product.sold_out' | t }}
+                  {% else %}
+                    {{ 'products.product.add_to_cart_html' | t }}
                   {% endunless %}
-                  aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
-                  class="btn product-form__cart-submit{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"
-                  {% if settings.enable_ajax %}
-                    aria-haspopup="dialog"
-                  {% endif %}
-                  data-add-to-cart
-                >
-                  <span data-add-to-cart-text>
-                    {% unless current_variant.available %}
-                      {{ 'products.product.sold_out' | t }}
-                    {% else %}
-                      {{ 'products.product.add_to_cart' | t }}
-                    {% endunless %}
-                  </span>
-                  <span class="hide" data-loader>
-                    {% include 'icon-spinner' %}
-                  </span>
-                </button>
-              {%- endif -%}
+                </span>
+                <span class="hide" data-loader>
+                  {% include 'icon-spinner' %}
+                </span>
+              </button>
               {% if section.settings.enable_payment_button %}
                 {{ form | payment_button }}
               {% endif %}
